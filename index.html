@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+body {
+    display: block;
+    margin: 0;
+}
+
+.box {
+    min-height: 100vh;
+}
+.menu {
+ padding: 78.33px 67.5px;
+}
+.content {
+    flex: 1;
+    background-color: #DCCCBC;
+}
+.menu-title {
+    position: relative;
+    margin-bottom: 75px;
+}
+.menu-title label {
+    color: #000;
+    font-family: Noto Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.hamburger {
+    position: absolute;
+    left: 0;
+    width: 34px;
+    height: 28px;
+    cursor: pointer;
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    display: none;
+}
+.hamburger .line {
+    
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+.hamburger .line:nth-child(2) {
+    width: 70%;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: translateY(11.5px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: translateY(-11.5px) rotate(-45deg);
+}
+
+.logo {
+    position: absolute;
+    left: 110%;
+    width: 97px;    
+    height: 97px;    
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+}
+.logo::after {
+    content: '';
+    display: block;
+    position: relative;
+    left: 0;
+    top: -5%;
+    background: #000;
+    border-radius: 0 100% 0 0;
+    width: 15%;
+    height: 10%;
+    transform: rotate(-10deg);
+}
+.logo-head{
+    width: 45%;
+    height: 45%;
+    background: #000;
+    border-radius: 85% 50% 65% 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-left: 5px;
+}
+.logo-head::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: #000;
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    z-index: 1;
+    right: 20%;
+}
+.logo-face {
+    width: 100%;
+    height: 60%;
+    background: #fff;
+    border-radius: 100% 35% 65% 0;
+}
+.menu-items-box {
+    list-style-type: none;
+    padding: 0;
+}
+.menu-item {
+    margin-bottom: 21.74px;
+    color: #000;
+    text-align: center;
+    font-family: Noto Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.menu-item.active {
+    color: #A66;
+    font-weight: 700;
+    border-bottom: 2px solid #A66;
+}
+.banner {
+    width: 100%;
+    margin-bottom: 58px;
+}
+.msg-box {
+    padding: 0 15px;
+}
+.msg-pg {
+    padding: 0 40px;
+}
+.msg-title {
+    position: relative;
+    color: #000;
+    font-family: Noto Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    writing-mode: vertical-rl;
+    padding-right: 37px;
+}
+.msg-title img {
+    position: absolute;
+    width: 25px;
+    bottom: -10px;
+    left: 25px;
+}
+.msg-content {
+    color: #000;
+    font-family: Noto Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    .msg-pg {
+        padding: 0 10px;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .msg-box {
+        padding: 0 40px;
+        margin-bottom: 71px;
+    }
+    .msg-pg {
+        padding: 0;
+        margin-bottom: 50px;
+    }
+    .msg-pg:last-child {
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .menu {
+        padding: 30.7px 18px 30.7px 26px;
+    }
+    .menu-title {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .logo {
+        width: 48px;
+        height: 48px;
+        left: auto;
+        right: 0;
+    }
+    .menu-item:first-child {
+        padding-top: 34px;
+    }
+    .menu-items-box {
+        height: 0;
+        margin-bottom: 0;
+        overflow: hidden;
+    }
+    .menu-items-box.active {
+        height: fit-content;
+    }
+}
+</style>
+<body>
+<div class="box d-flex flex-column flex-md-row">
+    <div class="menu d-flex flex-column align-items-center">
+        <div class="menu-title d-flex align-items-center justify-content-center">
+            <div
+                class="hamburger" onclick="openMenu()"
+              >
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+              </div>
+            <label>
+                白頭翁不吃小米
+            </label>
+            <div class="logo">
+                <div class="logo-head">
+                    <div class="logo-face"></div>
+                </div>
+            </div>
+        </div>
+        <ul class="menu-items-box">
+            <li class="menu-item active">
+                白頭翁的特性
+            </li>
+            <li class="menu-item">
+                白頭翁的故事
+            </li>
+            <li class="menu-item">
+                白頭翁的美照
+            </li>
+            <li class="menu-item">
+                白頭翁的危機
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <img class="banner" src="./images/banner.png">
+        <div class="msg-box d-flex flex-wrap">
+            <div class="msg-pg col-lg-4 col-12">
+                <div class="msg d-flex align-items-start">
+                    <label class="msg-title">
+                        外觀
+                        <img src="./images/decorate.svg">
+                    </label>
+                    <p class="msg-content">
+                        白頭鵯體長約17到22公分，額至頭頂純黑色而富有光澤，兩眼上方至後枕白色，形成一白色枕環。耳羽後部有一白斑，此白環與白斑在黑色的頭部均極為醒目，老鳥的枕羽(後頭部)更潔白，所以又叫「白頭翁」。
+                    </p>
+                </div>
+            </div>
+            <div class="msg-pg col-lg-4 col-12">
+                <div class="msg d-flex align-items-start">
+                    <label class="msg-title">
+                        棲地
+                        <img src="./images/decorate.svg">
+                    </label>
+                    <p class="msg-content">
+                        白頭翁和麻雀、綠繡眼合稱「城市三寶」，常成群出現在平原區灌木叢、丘陵樹林地帶，以及校園、公園、庭院、行道中的各種高高的電線與樹上。
+                    </p>
+                </div>
+            </div>
+            <div class="msg-pg col-lg-4 col-12">
+                <div class="msg d-flex align-items-start">
+                    <label class="msg-title">
+                        食性
+                        <img src="./images/decorate.svg">
+                    </label>
+                    <p class="msg-content">
+                        以果樹的漿果和種子為主食，並時常飛入果園偷吃果實，還會吃嫩葉嫩芽，尤其是胡蝶蘭的嫩葉嫩芽葉，偶爾啄食昆蟲。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+function openMenu() {
+    const hamburger = document.getElementsByClassName('hamburger')[0];
+    const menu = document.getElementsByClassName('menu-items-box')[0];
+    
+    if(hamburger.classList.contains("active")) {
+        hamburger.classList.remove("active");
+        menu.classList.remove("active");
+    } else {
+        hamburger.classList.add("active");
+        menu.classList.add("active");
+    }
+    
+}
+</script>
